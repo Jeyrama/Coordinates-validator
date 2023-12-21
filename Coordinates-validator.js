@@ -55,3 +55,11 @@ function isValidCoordinates(coordinates){
 }
 
 // or
+
+function isValidCoordinates(coordinates){
+  let match = coordinates.match(/^[-]?(\d+(?:\.\d+)?), [-]?(\d+(?:\.\d+)?)$/);
+  if (!match) { return false; }
+  let lat = Math.abs(parseFloat(match[1]));
+  let lng = Math.abs(parseFloat(match[2]));
+  return lat <= 90 && lng <= 180;
+}
