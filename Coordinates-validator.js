@@ -31,3 +31,25 @@ And some invalid ones:
 
 
 // Solution
+
+function isValidCoordinates(coordinates){
+  let isOk = true
+  coordinatesTab = coordinates.split(',');
+  if(coordinatesTab.length !== 2)
+    isOk = false;
+  for(let i = 0; i < 2; i++){
+    if(isNaN(coordinatesTab[i])){
+      isOk = false;
+      break;
+    }
+  }
+  if(isOk){
+    if(Number(coordinatesTab[0]) < -90 || Number(coordinatesTab[0]) > 90)
+      isOk = false;
+    if(Number(coordinatesTab[1]) < -180 || Number(coordinatesTab[1]) > 180)
+      isOk = false;
+    if(coordinatesTab[0].toLowerCase().indexOf('e') !== -1 || coordinatesTab[1].toLowerCase().indexOf('e') !== -1)
+      isOk = false;
+  }
+  return isOk
+}
