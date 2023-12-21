@@ -53,3 +53,5 @@ function isValidCoordinates(coordinates){
   }
   return isOk
 }
+
+// or
